@@ -1,0 +1,19 @@
+﻿@startdot
+digraph G {
+  graph [rankdir=LR, splines=polyline, fontname="Microsoft YaHei", fontsize=24];
+  node [fontname="Microsoft YaHei", fontsize=20];
+  edge [fontname="Microsoft YaHei", fontsize=18];
+  User [shape=box, label="材料编写者"];
+  Passive [shape=box, label="被动服务"];
+  subgraph cluster_system {
+    label="系统";
+    U1 [shape=ellipse, label="用例1"];
+    U2 [shape=ellipse, label="用例2"];
+    U3 [shape=ellipse, label="用例3"];
+  }
+  User -> U1 [dir=none];
+  User -> U2 [dir=none];
+  U2 -> Passive [dir=none];
+  U1 -> U3 [style=dashed, arrowhead=open, label="<<include>>"];
+}
+@enddot
